@@ -47,64 +47,55 @@
     </div>
 
     <script>
-      let n1 = document.getElementById("form-inp1");
-      let n2 = document.getElementById("form-inp2");
-      let slct = document.getElementById("form-select");
-      let limpiar = document.getElementById("form-btn-limpiar");
-      let res = document.getElementById("resultado");
-      let lista = document.getElementById("list");
+      let n1 = document.getElementById( "form-inp1" );
+      let n2 = document.getElementById( "form-inp2" );
+      let slct = document.getElementById( "form-select" );
+      let limpiar = document.getElementById( "form-btn-limpiar" );
+      let res = document.getElementById( "resultado" );
+      let lista = document.getElementById( "list" );
 
-      limpiar.addEventListener("click", (e) => {
+      limpiar.addEventListener( "click", ( e ) => {
         e.preventDefault();
-        document.getElementById("formu").reset();
+        document.getElementById( "formu" ).reset();
         res.innerHTML = "";
       });
-      document.getElementById("formu").addEventListener("submit", (e) => {
+      document.getElementById( "formu" ).addEventListener( "submit", ( e ) => {
         e.preventDefault();
-        let newLi = document.createElement("li");
-        if (slct.value == 1) {
-          newLi.innerHTML = `${n1.value} + ${n2.value} = ${
-            parseInt(n1.value) + parseInt(n2.value)
-          }`;
+        let newLi = document.createElement( "li" );
+        if ( slct.value == 1 ) {
+          newLi.innerHTML = `${ n1.value } + ${ n2.value } = ${ parseInt( n1.value ) + parseInt( n2.value ) }`;
           res.innerHTML = "";
-          res.innerHTML = `${parseInt(n1.value) + parseInt(n2.value)}`;
-        } else if (slct.value == 2) {
-          newLi.innerHTML = `${n1.value} - ${n2.value} = ${
-            parseInt(n1.value) - parseInt(n2.value)
-          }`;
+          res.innerHTML = `${ parseInt( n1.value ) + parseInt( n2.value ) }`;
+        } 
+        else if ( slct.value == 2 ) {
+          newLi.innerHTML = `${ n1.value } - ${ n2.value } = ${ parseInt( n1.value ) - parseInt( n2.value ) }`;
           res.innerHTML = "";
-          res.innerHTML = `${parseInt(n1.value) - parseInt(n2.value)}`;
+          res.innerHTML = `${ parseInt( n1.value ) - parseInt( n2.value ) }`;
         }
-        if (slct.value == 3) {
-          newLi.innerHTML = `${n1.value} x ${n2.value} = ${
-            parseInt(n1.value) * parseInt(n2.value)
-          }`;
+        if ( slct.value == 3 ) {
+          newLi.innerHTML = `${ n1.value } x ${ n2.value } = ${ parseInt( n1.value ) * parseInt( n2.value ) }`;
           res.innerHTML = "";
-          res.innerHTML = `${parseInt(n1.value) * parseInt(n2.value)}`;
+          res.innerHTML = `${ parseInt( n1.value ) * parseInt( n2.value ) }`;
         }
-        if (slct.value == 4) {
-          if (parseInt(n1.value) < parseInt(n2.value)) {
-            alert("El divisor debe ser mayor que el dividendo");
+        if ( slct.value == 4 ) {
+          if ( parseInt( n1.value ) < parseInt( n2.value ) ) {
+            alert( "El divisor debe ser mayor que el dividendo" );
             n1.focus();
             return;
-          } else if (n2.value == 0) {
-            alert("El dividendo no puede ser 0");
+          } else if ( n2.value == 0 ) {
+            alert( "El dividendo no puede ser 0" );
             n2.focus();
             return;
           } else {
-            newLi.innerHTML = `${n1.value} / ${n2.value} = ${
-              parseInt(n1.value) / parseInt(n2.value)
-            }`;
+            newLi.innerHTML = `${ n1.value } / ${ n2.value } = ${ parseInt( n1.value ) / parseInt( n2.value ) }`;
             res.innerHTML = "";
-            res.innerHTML = `${(
-              parseInt(n1.value) / parseInt(n2.value)
-            ).toFixed(2)}`;
+            res.innerHTML = `${ ( parseInt( n1.value ) / parseInt( n2.value ) ).toFixed( 2 ) }`;
           }
         }
-        if (lista.childNodes.length >= 11) {
-          lista.removeChild(lista.firstChild);
+        if ( lista.childNodes.length >= 11 ) {
+          lista.removeChild( lista.firstChild );
         }
-        lista.appendChild(newLi);
+        lista.appendChild( newLi );
         n1.focus();
       });
     </script>
