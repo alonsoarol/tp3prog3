@@ -37,6 +37,9 @@ form > div > div {
     display: grid;
     grid-template-columns: 30% 40%;
 }
+.resultados h1{
+    color: rgb(172, 15, 15)
+}
 
 .historial {
     margin-top: 0;
